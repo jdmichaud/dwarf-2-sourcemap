@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "strict": true,
+    "importHelpers": false,
+    "sourceMap": true,
+    "outFile": "d2sm.js"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
