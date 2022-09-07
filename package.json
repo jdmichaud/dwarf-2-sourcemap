@@ -1,6 +1,6 @@
 {
   "name": "@jdmichaud/dwarf-2-sourcemap",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A DWARF to SourceMap converter for WASM debugging in the browser",
   "main": "d2sm.js",
   "scripts": {
