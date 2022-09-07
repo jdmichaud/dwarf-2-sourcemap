@@ -466,6 +466,12 @@ function getDIEs(buffer: Uint8Array, pos: number, infoSection: CustomSection,
           fields[AttributeEncoding[attribute.name]] = data;
           break;
         }
+        case FormType.DW_FORM_data8: // a 8 bytes constant
+        case FormType.DW_FORM_ref8: { // a 8 bytes reference to another DIE
+          const data = get8bytes(buffer, pos); pos += 8;
+          fields[AttributeEncoding[attribute.name]] = data;
+          break;
+        }
         case FormType.DW_FORM_udata: // an unsigned LEB128 constant
         case FormType.DW_FORM_ref_udata: { // an unsigned LEB128 reference to another DIE
           const { value: data, pos: endPos } = getLEB128(buffer, pos);
