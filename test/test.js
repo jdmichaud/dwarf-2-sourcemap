@@ -1,5 +1,4 @@
 async function main() {
-  // Wasm code
   const wasmFile = await fetch('main.wasm');
   const sourceBuffer = await wasmFile.arrayBuffer();
   const sourceBufferWithDebug = patchWithSourceMap(sourceBuffer);
