@@ -1,10 +1,14 @@
 {
-  "name": "dwarf-2-sourcemap",
+  "name": "@jdmichaud/dwarf-2-sourcemap",
   "version": "0.1.0",
-  "description": "A DWARF to SourceMaps converter for WASM debugging in the browser",
+  "description": "A DWARF to SourceMap converter for WASM debugging in the browser",
   "main": "d2sm.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint --config .eslintrc.js 'src/**/*.ts' --ignore-pattern 'src/**/*.spec.ts'",
+    "minify": "uglifyjs dist/d2sm.js -o dist/d2sm.min.js --source-map",
+    "all": "npm run lint && npm run build && npm run minify",
+    "ppublish": "npm run all && npm publish"
   },
   "repository": {
     "type": "git",
@@ -15,16 +19,23 @@
     "dwarf",
     "sourcemap"
   ],
-  "author": "JD",
+  "author": "jdmichaud",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jdmichaud/dwarf-2-sourcemap/issues"
   },
   "homepage": "https://github.com/jdmichaud/dwarf-2-sourcemap#readme",
+  "files": [
+    "dist/d2sm.js",
+    "dist/d2sm.js.map",
+    "dist/d2sm.min.js",
+    "dist/d2sm.min.js.map"
+  ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.2",
+    "uglify-js": "^3.17.0"
   }
 }

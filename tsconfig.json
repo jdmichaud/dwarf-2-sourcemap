@@ -7,7 +7,7 @@
     "strict": true,
     "importHelpers": false,
     "sourceMap": true,
-    "outFile": "d2sm.js"
+    "outFile": "dist/d2sm.js"
   },
   "include": [
     "src/**/*"
