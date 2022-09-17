@@ -667,7 +667,8 @@ function getLineNumberInfo(buffer: Uint8Array, lineSection: CustomSection,
   const unitLength = get4bytes(buffer, pos); pos += 4;
   const endOfLineNumberProgram = pos + unitLength;
   const version = get2bytes(buffer, pos); pos += 2;
-  const headerLength = get4bytes(buffer, pos); pos += 4;
+  const headerLength = is_32 ? get4bytes(buffer, pos) : get8bytes(buffer, pos);
+  pos += is_32 ? 4 : 8;
   const startOfLineNumberProgram = pos + headerLength;
   const minimumInstructionLength = buffer[pos++];
   const maximumOperationsPerInstruction = buffer[pos++];
